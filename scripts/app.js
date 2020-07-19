@@ -113,24 +113,33 @@ function init() {
   const gridHeight = 10
   const gridLength = 10
   const numberOfSquares = gridLength * gridHeight
+  const cells = []
 
-  console.log(numberOfSquares);
+  console.log(numberOfSquares)
   
 
   //? Element 
 
   const playersGrid = document.querySelector('#thegridp1')
-  console.log(playersGrid);
+  console.log(playersGrid)
  
   const computersGrid = document.querySelector('#thegridpc')
-  console.log(computersGrid);
+  console.log(computersGrid)
+
  
 
   //? Execution
   function createGrids() {
+    for (let i = 0; i < numberOfSquares; i++) {
+      const cell = document.createElement('div')
+      cells.push(cell)
+      cell.innerHTML = i
+      playersGrid.appendChild(cell)
+    }
+  }
+  createGrids()
 
   }
-  //? Event 
 
   
 
@@ -138,7 +147,7 @@ function init() {
 
 
 
-}
+
 
 
 window.addEventListener('DOMContentLoaded', init)
