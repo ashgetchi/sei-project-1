@@ -114,6 +114,7 @@ function init() {
   const gridLength = 10
   const numberOfSquares = gridLength * gridHeight
   const cells = []
+  
 
   console.log(numberOfSquares)
   
@@ -139,9 +140,18 @@ function init() {
       cell.innerHTML = i
       playersGrid.appendChild(cell)
     }
+
+    for (let i = 0; i < numberOfSquares; i++) {
+      const cell = document.createElement('div')
+      cells.push(cell)
+      cell.innerHTML = i
+      computersGrid.appendChild(cell)
+    }
   }
   createGrids()
 
+  console.log(cells);
+  
   }
 
   
