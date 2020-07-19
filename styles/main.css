@@ -105,9 +105,7 @@ cursor: crosshair;
 .header {
   text-align: center;
 }
-/* 
-.thegridpc div.battleship{
-  background-image: url('images/battleship icon.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-} */
+
+.thegridpc. div.battleship {
+  background-color: red;
+}

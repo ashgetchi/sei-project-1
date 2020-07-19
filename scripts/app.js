@@ -113,7 +113,9 @@ function init() {
   const gridHeight = 10
   const gridLength = 10
   const numberOfSquares = gridLength * gridHeight
-  const cells = []
+  const pcCells = []
+  const p1Cells = []
+  let pcShipPosition = 0 
   
 
   console.log(numberOfSquares)
@@ -135,25 +137,31 @@ function init() {
   //? Execution
   function createGrids() {
     for (let i = 0; i < numberOfSquares; i++) {
-      const cell = document.createElement('div')
-      cells.push(cell)
-      cell.innerHTML = i
-      playersGrid.appendChild(cell)
+      const pCcell = document.createElement('div')
+      pcCells.push(pCcell)
+      pCcell.innerHTML = i
+      playersGrid.appendChild(pCcell)
     }
 
     for (let i = 0; i < numberOfSquares; i++) {
-      const cell = document.createElement('div')
-      cells.push(cell)
-      cell.innerHTML = i
-      computersGrid.appendChild(cell)
+      const p1Cell = document.createElement('div')
+      p1Cells.push(p1Cell)
+      p1Cell.innerHTML = i
+      computersGrid.appendChild(p1Cell)
     }
   }
   createGrids()
 
-  console.log(cells);
+  // function placeComputerPieces() {
+  //   pcShipPosition = Math.floor(Math.random() * numberOfSquares)
+  //   cells[pcShipPosition].
+  //   }
   
-  }
+  
+  // placeComputerPieces()
+  
 
+}
   
 
 
