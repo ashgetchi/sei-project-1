@@ -1,12 +1,22 @@
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh
+}
+
 #thegridpc {
   height: 100px;
   width: 100px;
   border: 1px solid black
 }
 
-
-#thegridp1 {
+.thegridp1{
+  display: flex;
+}
+.thegridp1 div {
   height: 100px;
   width: 100px;
   border: 1px solid black

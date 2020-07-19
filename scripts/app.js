@@ -120,11 +120,14 @@ function init() {
 
   //? Element 
 
-  const playersGrid = document.querySelector('#thegridp1')
+  const playersGrid = document.querySelector('.thegridp1')
   console.log(playersGrid)
  
-  const computersGrid = document.querySelector('#thegridpc')
+  const computersGrid = document.querySelector('.thegridpc')
   console.log(computersGrid)
+
+  const gridcontainerp1 = document.querySelector('.gridcontainerp1')
+
 
  
 
