@@ -66,7 +66,6 @@ cursor: crosshair;
   height: 10%;
   width: 10%;
   cursor: crosshair;
-  transition: all 0.3s ease-in-out;
 }
 
 .thegridp1 div:hover {
@@ -77,8 +76,6 @@ cursor: crosshair;
   height: 10%;
   width: 10%;
   cursor: crosshair;
-  background-color: red;
-  transform: scale(1.1);
 }
 
 .thegridpc div {
@@ -89,6 +86,7 @@ cursor: crosshair;
   height: 10%;
   width: 10%;
   cursor: crosshair;
+  transition: all 0.3s ease-in-out;
 }
 
 .thegridpc div:hover {
@@ -99,10 +97,17 @@ cursor: crosshair;
   height: 10%;
   width: 10%;
   cursor: crosshair;
-  background-color: red;
+  background-image: url('https://i.pinimg.com/originals/2c/e4/d0/2ce4d0614263f4d25507dd339137a8a8.gif');
   transform: scale(1.1);
+  color: white;
 }
 
 .header {
   text-align: center;
 }
+/* 
+.thegridpc div.battleship{
+  background-image: url('images/battleship icon.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+} */
