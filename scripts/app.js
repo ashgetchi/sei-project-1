@@ -26,7 +26,7 @@ function init() {
   //! Simply insert a line in the middle of the grids OR a subheading that says your grid and their grid
   //! Give your grid an id and your computers grid an id
 
-  //? There is a hanger on the right of your grid - where your pieces start and you click where you want them to go on your grid
+  //? There is a hanger below your grid - where your pieces start and you click where you want them to go on your grid
   //! This 'hanger' is simply another grid of 40 squares without borders on them
 
   //? The computers pieces are randomly allocated onto the pc grid
@@ -102,13 +102,35 @@ function init() {
   //! If all pieces are marked with a red x
   //? If all users ships are marked with the red x. Print a large you lose and play the 'you lost' gif 
 
-//* Questions
-//? How to get the ship across multiple divs
-//? Will my array method of sink work?
+  //* Questions
+  //? How to get the ship across multiple divs
+  //? Will my array method of sink work?
 
+  //* -------------------------------------------------------------------------------------------------------------------------------------------------------
 
+  //* Other variables
 
+  const gridHeight = 10
+  const gridLength = 10
+  const numberOfSquares = gridLength * gridHeight
+
+  console.log(numberOfSquares);
+  
+
+  //? Element 
+
+  const playersGrid = document.querySelector('#thegridp1')
+  console.log(playersGrid);
  
+  const computersGrid = document.querySelector('#thegridpc')
+  console.log(computersGrid);
+ 
+
+  //? Execution
+  function createGrids() {
+
+  }
+  //? Event 
 
   
 
