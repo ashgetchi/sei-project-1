@@ -4,18 +4,21 @@
 }
 
 body {
-  height: 100vh
-}
-
-#thegridpc {
-  height: 100px;
-  width: 100px;
-  border: 1px solid black
-}
-
-.thegridp1{
+  height: 100vh;
   display: flex;
 }
+
+.gridcontainerpc {
+  display: flex;
+  flex-grow: 1;
+}
+
+.gridcontainerp1 {
+  display: flex;
+  flex-grow: 1;
+}
+
+
 .thegridp1 div {
   height: 100px;
   width: 100px;
