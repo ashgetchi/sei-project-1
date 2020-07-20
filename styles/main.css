@@ -24,13 +24,8 @@ body {
   /* background-image: url('https://i.pinimg.com/originals/2c/e4/d0/2ce4d0614263f4d25507dd339137a8a8.gif'); */
 }
 
-/* .thegridp1 {
-  flex-wrap: wrap;
-  height: 300px;
-  width: 300px;
-  height: 100%;
-  width: 100%;
-} */
+
+
 
 .thegridp1{
 align-items: center;
@@ -110,4 +105,34 @@ cursor: crosshair;
   background-image: url('https://static.thenounproject.com/png/1597473-200.png');
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.hangar {
+  height: 300px;
+  width: 300px;
+  border: 1px solid black;
+  margin: 10px;
+  display: flex;
+}
+
+
+.ship1{
+  height: 20px;
+  width: 20px;
+  height: 10%;
+  width: 10%;
+  border: 1px solid black;
+  cursor: crosshair;
+  background-size: contain;
+  display: flex;
+}
+
+.ship1 div {
+  height: 20px;
+  width: 20px;
+  border: 1px solid black;
+  cursor: crosshair;
+  flex-grow: 1;
+  height: 100%;
+  background-color: aquamarine;
 }
