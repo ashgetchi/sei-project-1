@@ -171,17 +171,21 @@ function init() {
   function placeComputerPieces() {
     const newPositions = threePieceShips.map(ship => {
       pcShipPosition = Math.floor(Math.random() * numberOfSquares)
-      pcCells[pcShipPosition].classList.add('battleship')
-      pcShipPosition2 = pcShipPosition + 1
-      pcShipPosition3 = pcShipPosition + 2
+      if(pcShipPosition === 99 || pcShipPosition % 10 === 9 || pcShipPosition % 10 === 8){
+        pcCells[pcShipPosition -= 2].classList.add('battleship')
+      } else{
+      pcCells[pcShipPosition].classList.add('battleship')}
+      const pcShipPosition2 = pcShipPosition + 1
       pcCells[pcShipPosition2].classList.add('battleship')
+      const pcShipPosition3 = pcShipPosition2 + 1
       pcCells[pcShipPosition3].classList.add('battleship')
+     
       
 
     })
   }
-
   placeComputerPieces()
+
   function targetSelector(e) {
     console.log('click')
     if (e.target.classList.contains('battleship')) {
