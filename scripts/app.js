@@ -148,6 +148,7 @@ function init() {
   const computersGrid = document.querySelector('.thegridpc')
   console.log(computersGrid)
 
+  const computersCells = document.querySelectorAll('.thegridpc div')
   const gridcontainerp1 = document.querySelector('.gridcontainerp1')
 
 
@@ -216,16 +217,27 @@ function init() {
     pcShipPosition20 = Math.floor(Math.random() * numberOfSquares)
     pcCells[pcShipPosition20].classList.add('battleship')
     
-
-  
-    
   }
-  
+
+  function targetSelected(e) {
+    console.log('click')
+    if (e.target.classList.contains('battleship')) {
+      window.alert('hit')
+      e.target.classList.add('explosion')
+    } else {
+      window.alert('miss')
+    }
+  }
+//? Event 
 
   
+  computersGrid.addEventListener('click', targetSelected)
 
+  console.log(computersCells);
+  
 }
   
+
 
 
 
