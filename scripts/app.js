@@ -219,21 +219,21 @@ function init() {
     
   }
 
-  function targetSelected(e) {
+  function targetSelector(e) {
     console.log('click')
     if (e.target.classList.contains('battleship')) {
       window.alert('hit')
       e.target.classList.add('explosion')
     } else {
       window.alert('miss')
+      e.target.classList.add('miss')
     }
   }
 //? Event 
 
   
-  computersGrid.addEventListener('click', targetSelected)
+  computersGrid.addEventListener('click', targetSelector)
 
-  console.log(computersCells);
   
 }
   

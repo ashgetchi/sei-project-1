@@ -108,7 +108,16 @@ cursor: crosshair;
 }
 
 .hangar {
-  height: 400px;
+  height: 600px;
+  width: 400px;
+  border: 1px solid black;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sitrep {
+  height: 600px;
   width: 400px;
   border: 1px solid black;
   margin: 10px;
@@ -119,63 +128,245 @@ cursor: crosshair;
 
 .ship1{
   height: 60px;
-  width: 180px;
+  width: 240px;
   border: 1px solid black;
   cursor: crosshair;
   background-size: contain;
-  display: flex;
   margin: 5px;
+  height: 60px;
+  width: 240px;
+  border: 1px solid black;
+  cursor: crosshair;
+  background-color: rgba(0, 255, 65);
+  background-image: url('https://static.thenounproject.com/png/1597473-200.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  
+}
+.ship1:hover {
+  height: 60px;
+  width: 240px;
+  border: 1px solid black;
+  cursor: crosshair;
+  background-size: contain;
+  margin: 5px;
+  height: 60px;
+  width: 240px;
+  border: 1px solid black;
+  cursor: crosshair;
+  background-color: rgb(0, 143, 17);
+  background-image: url('https://static.thenounproject.com/png/1597473-200.png');
+  background-repeat: no-repeat;
+  background-size: contain;
   
 }
 
-.ship1 div {
-  height: 60px;
-  width: 60px;
+
+.ship2  {
+
   border: 1px solid black;
   cursor: crosshair;
-  flex-grow: 1;
-  height: 100%;
-  background-color: aquamarine;
+  display: flex;
+  margin: 5px;
+  height: 60px;
+  width: 180px;
+  border: 1px solid black;
+  background-color: rgba(0, 255, 65);
   background-image: url('https://static.thenounproject.com/png/1597473-200.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.ship2  {
+
+.ship2:hover {
   height: 60px;
   width: 180px;
   border: 1px solid black;
   cursor: crosshair;
-  background-size: contain;
-  display: flex;
-  margin: 5px;
-}
-
-
-
-.ship2 div {
-  height: 60px;
-  width: 60px;
-  border: 1px solid black;
-  cursor: crosshair;
-  flex-grow: 1;
-  height: 100%;
-  background-color: aquamarine;
-  background-image: url('https://static.thenounproject.com/png/1597473-200.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.ship2 div:hover {
-  height: 60px;
-  width: 60px;
-  border: 1px solid black;
-  cursor: crosshair;
-  flex-grow: 1;
-  height: 100%;
   background-color: rgb(0, 143, 17);
   background-image: url('https://static.thenounproject.com/png/1597473-200.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
- 
+
+.ship3  {
+  height: 60px;
+  width: 180px;
+  border: 1px solid black;
+  cursor: crosshair;
+  background-size: contain;
+  margin: 5px;
+  background-color: rgba(0, 255, 65);
+  background-image: url('https://static.thenounproject.com/png/1597473-200.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
+.ship3:hover {
+  height: 60px;
+  width: 180px;
+  border: 1px solid black;
+  cursor: crosshair;
+  background-color: rgba(0, 143, 17);
+  background-image: url('https://static.thenounproject.com/png/1597473-200.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.ship4 {
+
+border: 1px solid black;
+cursor: crosshair;
+background-image: url('https://static.thenounproject.com/png/1597473-200.png');
+background-repeat: no-repeat;
+background-size: contain;
+height: 60px;
+width: 120px;
+border: 1px solid black;
+cursor: crosshair;
+background-size: contain;
+margin: 5px;
+background-color: rgba(0, 255, 65);
+
+}
+.ship4:hover {
+border: 1px solid black;
+cursor: crosshair;
+background-image: url('https://static.thenounproject.com/png/1597473-200.png');
+background-repeat: no-repeat;
+background-size: contain;
+height: 60px;
+width: 120px;
+border: 1px solid black;
+cursor: crosshair;
+background-size: contain;
+margin: 5px;
+background-color: rgb(0, 143, 17);
+
+}
+.ship5 {
+
+border: 1px solid black;
+cursor: crosshair;
+background-image: url('https://static.thenounproject.com/png/1597473-200.png');
+background-repeat: no-repeat;
+background-size: contain;
+height: 60px;
+width: 120px;
+border: 1px solid black;
+cursor: crosshair;
+background-size: contain;
+margin: 5px;
+background-color: rgba(0, 255, 65);
+
+}
+.ship5:hover {
+border: 1px solid black;
+cursor: crosshair;
+background-image: url('https://static.thenounproject.com/png/1597473-200.png');
+background-repeat: no-repeat;
+background-size: contain;
+height: 60px;
+width: 120px;
+border: 1px solid black;
+cursor: crosshair;
+background-size: contain;
+margin: 5px;
+background-color: rgb(0, 143, 17);
+
+}
+
+.ship6 {
+border: 1px solid black;
+cursor: crosshair;
+background-image: url('https://static.thenounproject.com/png/1597473-200.png');
+background-repeat: no-repeat;
+background-size: contain;
+height: 60px;
+width: 120px;
+border: 1px solid black;
+cursor: crosshair;
+background-size: contain;
+margin: 5px;
+background-color: rgba(0, 255, 65);
+}
+
+.ship6:hover {
+border: 1px solid black;
+cursor: crosshair;
+background-image: url('https://static.thenounproject.com/png/1597473-200.png');
+background-repeat: no-repeat;
+background-size: contain;
+height: 60px;
+width: 120px;
+border: 1px solid black;
+cursor: crosshair;
+background-size: contain;
+margin: 5px;
+background-color: rgb(0, 143, 17);
+}
+
+.ship7 {
+  border: 1px solid black;
+  cursor: crosshair;
+  background-image: url('https://static.thenounproject.com/png/1597473-200.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 60px;
+  width: 60px;
+  border: 1px solid black;
+  cursor: crosshair;
+  background-size: contain;
+  margin: 5px;
+  background-color: rgba(0, 255, 65);
+  }
+
+.ship7:hover {
+    border: 1px solid black;
+    cursor: crosshair;
+    background-image: url('https://static.thenounproject.com/png/1597473-200.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 60px;
+    width: 60px;
+    border: 1px solid black;
+    cursor: crosshair;
+    background-size: contain;
+    margin: 5px;
+    background-color: rgb(0, 143, 17);
+    }
+
+.ship8 {
+  border: 1px solid black;
+  cursor: crosshair;
+  background-image: url('https://static.thenounproject.com/png/1597473-200.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 60px;
+  width: 60px;
+  border: 1px solid black;
+  cursor: crosshair;
+  background-size: contain;
+  margin: 5px;
+  background-color: rgba(0, 255, 65);
+  }
+
+.ship8:hover {
+    border: 1px solid black;
+    cursor: crosshair;
+    background-image: url('https://static.thenounproject.com/png/1597473-200.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 60px;
+    width: 60px;
+    border: 1px solid black;
+    cursor: crosshair;
+    background-size: contain;
+    margin: 5px;
+    background-color: rgb(0, 143, 17);
+    }
+
+    .miss {
+      background-color: blue;
+    }
