@@ -137,24 +137,24 @@ function init() {
   //? Execution
   function createGrids() {
     for (let i = 0; i < numberOfSquares; i++) {
-      const pCcell = document.createElement('div')
-      pcCells.push(pCcell)
-      pCcell.innerHTML = i
-      playersGrid.appendChild(pCcell)
-    }
-
-    for (let i = 0; i < numberOfSquares; i++) {
       const p1Cell = document.createElement('div')
       p1Cells.push(p1Cell)
       p1Cell.innerHTML = i
-      computersGrid.appendChild(p1Cell)
+      playersGrid.appendChild(p1Cell)
+    }
+
+    for (let i = 0; i < numberOfSquares; i++) {
+      const pcCell = document.createElement('div')
+      pcCells.push(pcCell)
+      pcCell.innerHTML = i
+      computersGrid.appendChild(pcCell)
     }
   }
   createGrids()
 
   function placeComputerPieces() {
     pcShipPosition = Math.floor(Math.random() * numberOfSquares)
-    p1Cells[3].classList.add('battleship')
+    pcCells[pcShipPosition].classList.add('battleship')
   
     
   }
