@@ -107,6 +107,7 @@ cursor: crosshair;
 }
 
 .battleship {
-  background-color: red;
-  color: red;
+  background-image: url('https://static.thenounproject.com/png/1597473-200.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
