@@ -223,7 +223,7 @@ function init() {
     console.log('click')
     if (e.target.classList.contains('battleship')) {
       window.alert('hit')
-      e.target.classList.add('explosion')
+      e.target.classList.add('hit')
     } else {
       window.alert('miss')
       e.target.classList.add('miss')

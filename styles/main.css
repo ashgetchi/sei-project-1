@@ -370,3 +370,7 @@ background-color: rgb(0, 143, 17);
     .miss {
       background-color: blue;
     }
+
+    .hit {
+      background-color: red;
+    }
