@@ -152,13 +152,15 @@ function init() {
   }
   createGrids()
 
-  // function placeComputerPieces() {
-  //   pcShipPosition = Math.floor(Math.random() * numberOfSquares)
-  //   cells[pcShipPosition].
-  //   }
+  function placeComputerPieces() {
+    pcShipPosition = Math.floor(Math.random() * numberOfSquares)
+    p1Cells[3].classList.add('battleship')
   
+    
+  }
   
-  // placeComputerPieces()
+
+  placeComputerPieces()
   
 
 }
