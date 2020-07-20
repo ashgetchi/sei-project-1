@@ -116,25 +116,19 @@ function init() {
   const pcCells = []
   const p1Cells = []
   let pcShipPosition = 0 
-  let pcShipPosition2 = 0
-  let pcShipPosition3 = 0
-  let pcShipPosition4 = 0
-  let pcShipPosition5 = 0
-  let pcShipPosition6 = 0
-  let pcShipPosition7 = 0
-  let pcShipPosition8 = 0
-  let pcShipPosition9 = 0
-  let pcShipPosition10 = 0
-  let pcShipPosition11 = 0
-  let pcShipPosition12 = 0
-  let pcShipPosition13 = 0
-  let pcShipPosition14 = 0
-  let pcShipPosition15 = 0
-  let pcShipPosition16 = 0
-  let pcShipPosition17 = 0
-  let pcShipPosition18 = 0
-  let pcShipPosition19 = 0
-  let pcShipPosition20 = 0
+  
+ 
+  const pcShips = ['ship1','ship2','ship3','ship4','ship5','ship6','ship7','ship8','ship9','ship10' ]
+
+  const pcShip2 = []
+  const pcShip3 = []
+  const pcShip4 = []
+  const pcShip5 = []
+  const pcShip6 = []
+  const pcShip7 = []
+  const pcShip8 = []
+  const pcShip9 = []
+  const pcShip10 = []
   
 
   console.log(pcCells[1])
@@ -169,56 +163,18 @@ function init() {
       pcCell.innerHTML = i
       computersGrid.appendChild(pcCell)
     }
-    placeComputerPieces()
+    
   }
   createGrids()
 
   function placeComputerPieces() {
-    pcShipPosition = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition].classList.add('battleship')
-    
-
-    pcShipPosition2 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition2].classList.add('battleship')
-    pcShipPosition3 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition3].classList.add('battleship')
-    pcShipPosition4 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition4].classList.add('battleship')
-    pcShipPosition5 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition5].classList.add('battleship')
-    pcShipPosition6 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition6].classList.add('battleship')
-    pcShipPosition7 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition7].classList.add('battleship')
-    pcShipPosition8 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition8].classList.add('battleship')
-    pcShipPosition9 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition9].classList.add('battleship')
-    pcShipPosition10 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition10].classList.add('battleship')
-    pcShipPosition11 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition11].classList.add('battleship')
-    pcShipPosition12 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition12].classList.add('battleship')
-    pcShipPosition13 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition13].classList.add('battleship')
-    pcShipPosition14 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition14].classList.add('battleship')
-    pcShipPosition15 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition15].classList.add('battleship')
-    pcShipPosition16 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition16].classList.add('battleship')
-    pcShipPosition17 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition17].classList.add('battleship')
-    pcShipPosition18 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition18].classList.add('battleship')
-    pcShipPosition19 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition19].classList.add('battleship')
-    pcShipPosition20 = Math.floor(Math.random() * numberOfSquares)
-    pcCells[pcShipPosition20].classList.add('battleship')
-    
+    const newPositions = pcShips.map(ship => {
+      pcShipPosition = Math.floor(Math.random() * numberOfSquares)
+      pcCells[pcShipPosition].classList.add('battleship')
+    })
+    return newPositions
   }
-
+  placeComputerPieces()
   function targetSelector(e) {
     console.log('click')
     if (e.target.classList.contains('battleship')) {
