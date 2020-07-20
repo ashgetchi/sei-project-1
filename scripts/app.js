@@ -118,7 +118,8 @@ function init() {
   let pcShipPosition = 0 
   
  
-  const pcShips = ['ship1','ship2','ship3','ship4','ship5','ship6','ship7','ship8','ship9','ship10' ]
+  const threePieceShips = ['ship2','ship3','ship4']
+
 
   const pcShip2 = []
   const pcShip3 = []
@@ -168,12 +169,18 @@ function init() {
   createGrids()
 
   function placeComputerPieces() {
-    const newPositions = pcShips.map(ship => {
+    const newPositions = threePieceShips.map(ship => {
       pcShipPosition = Math.floor(Math.random() * numberOfSquares)
       pcCells[pcShipPosition].classList.add('battleship')
+      pcShipPosition2 = pcShipPosition + 1
+      pcShipPosition3 = pcShipPosition + 2
+      pcCells[pcShipPosition2].classList.add('battleship')
+      pcCells[pcShipPosition3].classList.add('battleship')
+      
+
     })
-    return newPositions
   }
+
   placeComputerPieces()
   function targetSelector(e) {
     console.log('click')
