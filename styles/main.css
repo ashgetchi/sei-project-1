@@ -7,7 +7,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  
+  font-family: 'VT323', monospace;
 }
 
 .gridcontainerpc {
@@ -368,9 +368,10 @@ background-color: rgb(0, 143, 17);
     }
 
     .miss {
-      background-color: blue;
+      background-image: url('https://i.pinimg.com/originals/2c/e4/d0/2ce4d0614263f4d25507dd339137a8a8.gif')
     }
 
     .hit {
-      background-color: red;
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRAe2flWJ9ncmCaqwhnby4N70_l8EiQ7sMfyg&usqp=CAU');
+      background-size: contain;
     }

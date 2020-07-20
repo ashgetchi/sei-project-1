@@ -137,7 +137,7 @@ function init() {
   let pcShipPosition20 = 0
   
 
-  console.log(numberOfSquares)
+  console.log(pcCells[1])
   
 
   //? Element 
@@ -176,10 +176,10 @@ function init() {
   function placeComputerPieces() {
     pcShipPosition = Math.floor(Math.random() * numberOfSquares)
     pcCells[pcShipPosition].classList.add('battleship')
+    
 
     pcShipPosition2 = Math.floor(Math.random() * numberOfSquares)
     pcCells[pcShipPosition2].classList.add('battleship')
-
     pcShipPosition3 = Math.floor(Math.random() * numberOfSquares)
     pcCells[pcShipPosition3].classList.add('battleship')
     pcShipPosition4 = Math.floor(Math.random() * numberOfSquares)
