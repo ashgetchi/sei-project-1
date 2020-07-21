@@ -133,23 +133,24 @@ function init() {
   //? Element 
 
   const playersGrid = document.querySelector('.thegridp1')
-  console.log(playersGrid)
  
   const computersGrid = document.querySelector('.thegridpc')
-  console.log(computersGrid)
 
   const hangar = document.querySelector('.hangar')
 
+  const turnButton = document.querySelector('.turn')
+  
+
   const computersCells = document.querySelectorAll('.thegridpc div')
   const gridcontainerp1 = document.querySelector('.gridcontainerp1')
+
   const ship1 = document.querySelector('#ship1')
   const ship2 = document.querySelector('#ship2')
   const ship3 = document.querySelector('#ship3')
   const ship4 = document.querySelector('#ship4')
   const ship5 = document.querySelector('#ship5')
+  const sitrep = document.querySelector('.sitrep')
 
-
- 
 
   //? Execution
   function createGrids() {
@@ -215,11 +216,14 @@ function init() {
 
   function targetSelector(e) {
     console.log('click')
-    if (e.target.classList.contains('battleship')) {
-      window.alert('hit')
+    if (e.target.classList.contains('pcbattleship')) {
+      sitrep.innerHTML = 'HIT'
+      e.target.innerHTML = 'hit'
+    
+
       e.target.classList.add('hit')
     } else {
-      window.alert('miss')
+      sitrep.innerHTML = 'MISS'
       e.target.classList.add('miss')
     }
   }
@@ -260,23 +264,47 @@ function init() {
       shipLocation.classList.toggle('battleship')
       shipLocation2.classList.toggle('battleship')
       shipLocation3.classList.toggle('battleship')
+      shipLocation4.classList.toggle('battleship')
       ship2.classList.toggle('selected')
     }
   
     if (ship3.classList.contains('selected')){
       const shipLocation2 = p1Cells[parseInt(shipLocationNumber) + 1]
       const shipLocation3 = p1Cells[parseInt(shipLocationNumber) + 2]
-      const shipLocation4 = p1Cells[parseInt(shipLocationNumber) + 3]
       shipLocation.classList.toggle('battleship')
       shipLocation2.classList.toggle('battleship')
       shipLocation3.classList.toggle('battleship')
       ship3.classList.toggle('selected')
     }
-  
+    if (ship4.classList.contains('selected')){
+      const shipLocation2 = p1Cells[parseInt(shipLocationNumber) + 1]
+      const shipLocation3 = p1Cells[parseInt(shipLocationNumber) + 2]
+      shipLocation.classList.toggle('battleship')
+      shipLocation2.classList.toggle('battleship')
+      shipLocation3.classList.toggle('battleship')
+      ship4.classList.toggle('selected')
+    }
+    if (ship5.classList.contains('selected')){
+      const shipLocation2 = p1Cells[parseInt(shipLocationNumber) + 1]
+      const shipLocation3 = p1Cells[parseInt(shipLocationNumber) + 2]
+      shipLocation.classList.toggle('battleship')
+      shipLocation2.classList.toggle('battleship')
+      shipLocation3.classList.toggle('battleship')
+      ship5.classList.toggle('selected')
+
+      
     
-    
+    }
+   
 
   }
+
+  function pcTakeTurn(){
+    const computersTarget = Math.floor(Math.random() * numberOfSquares) 
+    p1Cells[computersTarget].classList.add('hit')
+
+  }    
+
 
   
   
@@ -287,6 +315,8 @@ function init() {
   playersGrid.addEventListener('click',placeOnBoard)
   hangar.addEventListener('click', selectShip)
   computersGrid.addEventListener('click', targetSelector)
+  turnButton.addEventListener('click', pcTakeTurn)
+
 
 
 }
