@@ -118,7 +118,8 @@ function init() {
   let pcShipPosition = 0 
   
  
-  const threePieceShips = ['ship2','ship3','ship4']
+  const threePieceShips = ['ship3','ship4','ship5']
+  const fourPieceShip = ['ship1','ship2']
 
 
   const pcShip2 = []
@@ -143,7 +144,10 @@ function init() {
   const computersGrid = document.querySelector('.thegridpc')
   console.log(computersGrid)
 
+  const hangar = document.querySelector('.hangar')
+
   const computersCells = document.querySelectorAll('.thegridpc div')
+  const p1Cells = document.querySelectorAll('.thegridp1 div') 
   const gridcontainerp1 = document.querySelector('.gridcontainerp1')
 
 
@@ -171,19 +175,31 @@ function init() {
   function placeComputerPieces() {
     const newPositions = threePieceShips.map(ship => {
       pcShipPosition = Math.floor(Math.random() * numberOfSquares)
-      if(pcShipPosition === 99 || pcShipPosition % 10 === 9 || pcShipPosition % 10 === 8){
-        pcCells[pcShipPosition -= 2].classList.add('battleship')
-      } else{
+      if (pcShipPosition === 99 || pcShipPosition % 10 === 9 || pcShipPosition % 10 === 8){
+        pcCells[pcShipPosition -=2 ].classList.add('battleship')
+      } else {
       pcCells[pcShipPosition].classList.add('battleship')}
       const pcShipPosition2 = pcShipPosition + 1
       pcCells[pcShipPosition2].classList.add('battleship')
       const pcShipPosition3 = pcShipPosition2 + 1
       pcCells[pcShipPosition3].classList.add('battleship')
-     
-      
+      })
 
-    })
-  }
+      const newPositions2 = fourPieceShip.map(ship => {
+        pcShipPosition = Math.floor(Math.random() * numberOfSquares)
+        if (pcShipPosition === 99 || pcShipPosition % 10 === 9 || pcShipPosition % 10 === 8){
+          pcCells[pcShipPosition -=3 ].classList.add('battleship')
+        } else {
+        pcCells[pcShipPosition].classList.add('battleship')}
+        const pcShipPosition2 = pcShipPosition + 1
+        pcCells[pcShipPosition2].classList.add('battleship')
+        const pcShipPosition3 = pcShipPosition2 + 1
+        pcCells[pcShipPosition3].classList.add('battleship')
+        const pcShipPosition4 = pcShipPosition3 + 1
+        pcCells[pcShipPosition4].classList.add('battleship')
+        })
+    }
+  
   placeComputerPieces()
 
   function targetSelector(e) {
@@ -196,12 +212,25 @@ function init() {
       e.target.classList.add('miss')
     }
   }
+
+  function selectShip(e){
+    console.log('click')
+    e.target.classList.toggle('selected')
+
+
+  }
+
+  function placeOnBoard(e){
+
+  }
+//? If 
+
 //? Event 
 
-  
+  hangar.addEventListener('click', selectShip)
   computersGrid.addEventListener('click', targetSelector)
 
-  
+
 }
   
 
