@@ -117,20 +117,16 @@ function init() {
   const p1Cells = []
   let pcShipPosition = 0 
   
- 
+
   const threePieceShips = ['ship3','ship4','ship5']
   const fourPieceShip = ['ship1','ship2']
 
-
+  const pcShip = []
   const pcShip2 = []
   const pcShip3 = []
   const pcShip4 = []
   const pcShip5 = []
-  const pcShip6 = []
-  const pcShip7 = []
-  const pcShip8 = []
-  const pcShip9 = []
-  const pcShip10 = []
+  
   
 
   console.log(pcCells[1])
@@ -147,7 +143,6 @@ function init() {
   const hangar = document.querySelector('.hangar')
 
   const computersCells = document.querySelectorAll('.thegridpc div')
-  const p1Cells = document.querySelectorAll('.thegridp1 div') 
   const gridcontainerp1 = document.querySelector('.gridcontainerp1')
 
 
@@ -174,7 +169,7 @@ function init() {
 
   function placeComputerPieces() {
     const newPositions = threePieceShips.map(ship => {
-      pcShipPosition = Math.floor(Math.random() * numberOfSquares)
+      pcShipPosition = Math.floor(Math.random() * numberOfSquares) 
       if (pcShipPosition === 99 || pcShipPosition % 10 === 9 || pcShipPosition % 10 === 8){
         pcCells[pcShipPosition -=2 ].classList.add('battleship')
       } else {
@@ -185,10 +180,10 @@ function init() {
       pcCells[pcShipPosition3].classList.add('battleship')
       })
 
-      const newPositions2 = fourPieceShip.map(ship => {
-        pcShipPosition = Math.floor(Math.random() * numberOfSquares)
-        if (pcShipPosition === 99 || pcShipPosition % 10 === 9 || pcShipPosition % 10 === 8){
-          pcCells[pcShipPosition -=3 ].classList.add('battleship')
+    const newPositions2 = fourPieceShip.map(ship => {
+      pcShipPosition = Math.floor(Math.random() * numberOfSquares)
+      if (pcShipPosition === 99 || pcShipPosition % 10 === 9 || pcShipPosition % 10 === 8 || pcShipPosition % 10 === 7){
+        pcCells[pcShipPosition -=3 ].classList.add('battleship')
         } else {
         pcCells[pcShipPosition].classList.add('battleship')}
         const pcShipPosition2 = pcShipPosition + 1
@@ -199,7 +194,9 @@ function init() {
         pcCells[pcShipPosition4].classList.add('battleship')
         })
     }
-  
+  //? everytime you place a ship store the indexes of those div into an array
+  //? Condition if the index its choosing now is already in the array
+  //? Push 172 into a new array and define it as something. check if the random number is already included in the ships array.
   placeComputerPieces()
 
   function targetSelector(e) {
@@ -216,17 +213,25 @@ function init() {
   function selectShip(e){
     console.log('click')
     e.target.classList.toggle('selected')
+    //? boolean regarding what ship you have selected
 
 
   }
 
   function placeOnBoard(e){
+    const boardLocation = e.target
+    console.log(boardLocation);
+    
+  
+    
+    
 
   }
 //? If 
 
 //? Event 
-
+  
+  playersGrid.addEventListener('click',placeOnBoard)
   hangar.addEventListener('click', selectShip)
   computersGrid.addEventListener('click', targetSelector)
 
