@@ -217,13 +217,13 @@ function init() {
   function targetSelector(e) {
     console.log('click')
     if (e.target.classList.contains('pcbattleship')) {
-      sitrep.innerHTML = 'HIT'
+      sitrep.innerHTML = 'HIT! - PRESS END TURN WHEN READY'
       e.target.innerHTML = 'hit'
     
 
       e.target.classList.add('hit')
     } else {
-      sitrep.innerHTML = 'MISS'
+      sitrep.innerHTML = 'MISS - PRESS END TURN WHEN READY'
       e.target.classList.add('miss')
     }
   }
@@ -301,7 +301,28 @@ function init() {
 
   function pcTakeTurn(){
     const computersTarget = Math.floor(Math.random() * numberOfSquares) 
-    p1Cells[computersTarget].classList.add('hit')
+    // const computerSmartTarget = Math.floor(Math.random() * 2)
+    // if(computerSmartTarget === 0){
+    //   computerSmartTarget += 1}else{
+    //     computerSmartTarget -= 1}
+      
+      
+    // }
+    // console.log(computerSmartTarget)
+
+    // while (p1Cells[computersTarget].classList.contains('battleship')){
+    // let previousTurnWasHit = true
+    // }
+
+    if (p1Cells[computersTarget].classList.contains('battleship')){
+      p1Cells[computersTarget].classList.add('hit') 
+    } else {
+      p1Cells[computersTarget].classList.add('miss')
+    }
+
+    // if (previousTurnWasHit === true)
+
+    // if (computerSmartTarget === )
 
   }    
 
