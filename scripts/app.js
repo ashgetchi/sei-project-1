@@ -127,9 +127,7 @@ function init() {
   const pcShip4 = []
   const pcShip5 = []
   
-  
 
-  console.log(pcCells[1])
   
 
   //? Element 
@@ -144,6 +142,11 @@ function init() {
 
   const computersCells = document.querySelectorAll('.thegridpc div')
   const gridcontainerp1 = document.querySelector('.gridcontainerp1')
+  const ship1 = document.querySelector('#ship1')
+  const ship2 = document.querySelector('#ship2')
+  const ship3 = document.querySelector('#ship3')
+  const ship4 = document.querySelector('#ship4')
+  const ship5 = document.querySelector('#ship5')
 
 
  
@@ -170,30 +173,41 @@ function init() {
   function placeComputerPieces() {
     const newPositions = threePieceShips.map(ship => {
       pcShipPosition = Math.floor(Math.random() * numberOfSquares) 
-      if (pcShipPosition === 99 || pcShipPosition % 10 === 9 || pcShipPosition % 10 === 8){
-        pcCells[pcShipPosition -=2 ].classList.add('battleship')
+      if (pcShipPosition === 99 || pcShipPosition % 10 === 9 || pcShipPosition % 10 === 8) {
+        pcCells[pcShipPosition -= 2 ].classList.add('pcbattleship')
+      } else if (pcCells[pcShipPosition].classList.contains('pcbattleship')){
+        pcCells[pcShipPosition += 10].classList.add('pcbattleship')
       } else {
-      pcCells[pcShipPosition].classList.add('battleship')}
+        pcCells[pcShipPosition].classList.add('pcbattleship')}
+
       const pcShipPosition2 = pcShipPosition + 1
-      pcCells[pcShipPosition2].classList.add('battleship')
+      pcCells[pcShipPosition2].classList.add('pcbattleship')
       const pcShipPosition3 = pcShipPosition2 + 1
-      pcCells[pcShipPosition3].classList.add('battleship')
-      })
+      pcCells[pcShipPosition3].classList.add('pcbattleship')
+    })
 
     const newPositions2 = fourPieceShip.map(ship => {
       pcShipPosition = Math.floor(Math.random() * numberOfSquares)
       if (pcShipPosition === 99 || pcShipPosition % 10 === 9 || pcShipPosition % 10 === 8 || pcShipPosition % 10 === 7){
-        pcCells[pcShipPosition -=3 ].classList.add('battleship')
-        } else {
-        pcCells[pcShipPosition].classList.add('battleship')}
-        const pcShipPosition2 = pcShipPosition + 1
-        pcCells[pcShipPosition2].classList.add('battleship')
-        const pcShipPosition3 = pcShipPosition2 + 1
-        pcCells[pcShipPosition3].classList.add('battleship')
-        const pcShipPosition4 = pcShipPosition3 + 1
-        pcCells[pcShipPosition4].classList.add('battleship')
-        })
-    }
+        pcCells[pcShipPosition -= 3 ].classList.add('pcbattleship')
+      } else if (pcCells[pcShipPosition].classList.contains('pcbattleship')) {
+        pcCells[pcShipPosition += 10].classList.add('pcbattleship')
+      } else {
+        pcCells[pcShipPosition].classList.add('pcbattleship')
+      }
+
+      // const shipsAlreadyPlaced = pcCells.map(cell => {
+      //   if pcCells
+      // }) 
+
+      const pcShipPosition2 = pcShipPosition + 1
+      pcCells[pcShipPosition2].classList.add('pcbattleship')
+      const pcShipPosition3 = pcShipPosition2 + 1
+      pcCells[pcShipPosition3].classList.add('pcbattleship')
+      const pcShipPosition4 = pcShipPosition3 + 1
+      pcCells[pcShipPosition4].classList.add('pcbattleship')
+    })
+  }
   //? everytime you place a ship store the indexes of those div into an array
   //? Condition if the index its choosing now is already in the array
   //? Push 172 into a new array and define it as something. check if the random number is already included in the ships array.
@@ -213,20 +227,59 @@ function init() {
   function selectShip(e){
     console.log('click')
     e.target.classList.toggle('selected')
+    console.log(e.target.value);
+
     //? boolean regarding what ship you have selected
 
 
   }
 
+  
+  
+
   function placeOnBoard(e){
-    const boardLocation = e.target
-    console.log(boardLocation);
+    const shipLocation = e.target
+    const shipLocationNumber = e.target.innerHTML
     
+   
+    if (ship1.classList.contains('selected')){
+      const shipLocation2 = p1Cells[parseInt(shipLocationNumber) + 1]
+      const shipLocation3 = p1Cells[parseInt(shipLocationNumber) + 2]
+      const shipLocation4 = p1Cells[parseInt(shipLocationNumber) + 3]
+      shipLocation.classList.toggle('battleship')
+      shipLocation2.classList.toggle('battleship')
+      shipLocation3.classList.toggle('battleship')
+      shipLocation4.classList.toggle('battleship')
+      ship1.classList.toggle('selected')
+    }
+
+    if (ship2.classList.contains('selected')){
+      const shipLocation2 = p1Cells[parseInt(shipLocationNumber) + 1]
+      const shipLocation3 = p1Cells[parseInt(shipLocationNumber) + 2]
+      const shipLocation4 = p1Cells[parseInt(shipLocationNumber) + 3]
+      shipLocation.classList.toggle('battleship')
+      shipLocation2.classList.toggle('battleship')
+      shipLocation3.classList.toggle('battleship')
+      ship2.classList.toggle('selected')
+    }
+  
+    if (ship3.classList.contains('selected')){
+      const shipLocation2 = p1Cells[parseInt(shipLocationNumber) + 1]
+      const shipLocation3 = p1Cells[parseInt(shipLocationNumber) + 2]
+      const shipLocation4 = p1Cells[parseInt(shipLocationNumber) + 3]
+      shipLocation.classList.toggle('battleship')
+      shipLocation2.classList.toggle('battleship')
+      shipLocation3.classList.toggle('battleship')
+      ship3.classList.toggle('selected')
+    }
   
     
     
 
   }
+
+  
+  
 //? If 
 
 //? Event 

@@ -101,10 +101,14 @@ cursor: crosshair;
   text-align: center;
 }
 
+.pcbattleship{
+  background-color: red;
+}
 .battleship {
   background-image: url('https://static.thenounproject.com/png/1597473-200.png');
   background-repeat: no-repeat;
   background-size: contain;
+  background-color:rgba(0, 255, 65)
 }
 
 .hangar {
@@ -129,20 +133,16 @@ cursor: crosshair;
 .ship1{
   height: 60px;
   width: 240px;
-  border: 1px solid black;
-  cursor: crosshair;
-  background-size: contain;
   margin: 5px;
-  height: 60px;
-  width: 240px;
   border: 1px solid black;
   cursor: crosshair;
   background-color: rgba(0, 255, 65);
   background-image: url('https://static.thenounproject.com/png/1597473-200.png');
   background-repeat: no-repeat;
   background-size: contain;
-  
 }
+
+
 .ship1:hover {
   height: 60px;
   width: 240px;
