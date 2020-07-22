@@ -231,7 +231,7 @@ function init() {
   function selectShip(e){
     console.log('click')
     e.target.classList.toggle('selected')
-    console.log(e.target.value);
+    console.log(e.target.value)
 
     //? boolean regarding what ship you have selected
 
@@ -254,7 +254,7 @@ function init() {
       shipLocation2.classList.toggle('battleship')
       shipLocation3.classList.toggle('battleship')
       shipLocation4.classList.toggle('battleship')
-      ship1.classList.toggle('selected')
+      // ship1.classList.toggle('selected')
     }
 
     if (ship2.classList.contains('selected')){
@@ -265,7 +265,7 @@ function init() {
       shipLocation2.classList.toggle('battleship')
       shipLocation3.classList.toggle('battleship')
       shipLocation4.classList.toggle('battleship')
-      ship2.classList.toggle('selected')
+      // ship2.classList.toggle('selected')
     }
   
     if (ship3.classList.contains('selected')){
@@ -274,7 +274,7 @@ function init() {
       shipLocation.classList.toggle('battleship')
       shipLocation2.classList.toggle('battleship')
       shipLocation3.classList.toggle('battleship')
-      ship3.classList.toggle('selected')
+      // ship3.classList.toggle('selected')
     }
     if (ship4.classList.contains('selected')){
       const shipLocation2 = p1Cells[parseInt(shipLocationNumber) + 1]
@@ -282,7 +282,7 @@ function init() {
       shipLocation.classList.toggle('battleship')
       shipLocation2.classList.toggle('battleship')
       shipLocation3.classList.toggle('battleship')
-      ship4.classList.toggle('selected')
+      // ship4.classList.toggle('selected')
     }
     if (ship5.classList.contains('selected')){
       const shipLocation2 = p1Cells[parseInt(shipLocationNumber) + 1]
@@ -290,7 +290,7 @@ function init() {
       shipLocation.classList.toggle('battleship')
       shipLocation2.classList.toggle('battleship')
       shipLocation3.classList.toggle('battleship')
-      ship5.classList.toggle('selected')
+      // ship5.classList.toggle('selected')
 
       
     
