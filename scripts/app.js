@@ -300,30 +300,39 @@ function init() {
   }
 
   function pcTakeTurn(){
-    const computersTarget = Math.floor(Math.random() * numberOfSquares) 
-    // const computerSmartTarget = Math.floor(Math.random() * 2)
-    // if(computerSmartTarget === 0){
-    //   computerSmartTarget += 1}else{
-    //     computerSmartTarget -= 1}
+
+    const timerId = setInterval(() => {
+
+      const computersTarget = Math.floor(Math.random() * numberOfSquares) 
+      // const computerSmartTarget = Math.floor(Math.random() * 2)
+      // if(computerSmartTarget === 0){
+      //   computerSmartTarget += 1}else{
+      //     computerSmartTarget -= 1}
+        
+        
+      // }
+      // console.log(computerSmartTarget)
+  
+      // while (p1Cells[computersTarget].classList.contains('battleship')){
+      // let previousTurnWasHit = true
+      // }
+  
+      if (p1Cells[computersTarget].classList.contains('battleship')){
+        p1Cells[computersTarget].classList.add('hit') 
+        clearInterval(timerId)
+      } else {
+        p1Cells[computersTarget].classList.add('miss')
+        clearInterval(timerId)
+      }
+  
+      // if (previousTurnWasHit === true)
+  
+      // if (computerSmartTarget === )
+  
       
-      
-    // }
-    // console.log(computerSmartTarget)
-
-    // while (p1Cells[computersTarget].classList.contains('battleship')){
-    // let previousTurnWasHit = true
-    // }
-
-    if (p1Cells[computersTarget].classList.contains('battleship')){
-      p1Cells[computersTarget].classList.add('hit') 
-    } else {
-      p1Cells[computersTarget].classList.add('miss')
-    }
-
-    // if (previousTurnWasHit === true)
-
-    // if (computerSmartTarget === )
-
+    }, 3000);
+  
+   
   }    
 
 
