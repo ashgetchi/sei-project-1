@@ -8,6 +8,8 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'VT323', monospace;
+  color: rgba(0, 143, 17,);
+  background-color: aliceblue)
 }
 
 .gridcontainerpc {
@@ -119,7 +121,22 @@ cursor: crosshair;
   display: flex;
   flex-direction: column;
   background-image: url('https://eatsleepworkrepeat.com/wp-content/uploads/2019/03/Matrix-GIF.gif');
+  color: white;
+  font-size: 50px;
+  justify-content: center;
+  align-content: center;
+  background-size: contain;
+  text-align: center;
+}
 
+.hangarimage{
+  background-image: url('https://media1.giphy.com/media/xUA7aLa0dBEWDcPxMk/source.gif');
+  background-size: contain;
+}
+
+.sitrepimage{
+  background-image: url('https://media1.giphy.com/media/xUA7aLa0dBEWDcPxMk/source.gif');
+  background-size: contain;
 }
 
 .sitrep {
@@ -129,12 +146,14 @@ cursor: crosshair;
   margin: 10px;
   display: flex;
   flex-direction: column;
+  background-image: url('https://eatsleepworkrepeat.com/wp-content/uploads/2019/03/Matrix-GIF.gif');
   text-align: center;
   color: white;
   font-size: 50px;
   align-content: center;
   justify-content: center;
-  background-image: url('https://eatsleepworkrepeat.com/wp-content/uploads/2019/03/Matrix-GIF.gif');
+  background-size: contain;
+  text-align: center;
 }
 
 
@@ -150,7 +169,7 @@ cursor: crosshair;
   background-size: contain;
 }
 
-
+/* 
 .ship1:hover {
   height: 60px;
   width: 240px;
@@ -167,7 +186,7 @@ cursor: crosshair;
   background-repeat: no-repeat;
   background-size: contain;
   
-}
+} */
 
 
 .ship2  {
@@ -186,7 +205,7 @@ cursor: crosshair;
 }
 
 
-.ship2:hover {
+/* .ship2:hover {
   height: 60px;
   width: 240px;
   border: 1px solid black;
@@ -195,7 +214,7 @@ cursor: crosshair;
   background-image: url('https://static.thenounproject.com/png/1597473-200.png');
   background-repeat: no-repeat;
   background-size: contain;
-}
+} */
 
 .ship3  {
   height: 60px;
@@ -211,7 +230,7 @@ cursor: crosshair;
 }
 
 
-.ship3:hover {
+/* .ship3:hover {
   height: 60px;
   width: 180px;
   border: 1px solid black;
@@ -220,7 +239,7 @@ cursor: crosshair;
   background-image: url('https://static.thenounproject.com/png/1597473-200.png');
   background-repeat: no-repeat;
   background-size: contain;
-}
+} */
 
 .ship4 {
 
@@ -238,7 +257,7 @@ margin: 5px;
 background-color: rgba(0, 255, 65);
 
 }
-.ship4:hover {
+/* .ship4:hover {
 border: 1px solid black;
 cursor: crosshair;
 background-image: url('https://static.thenounproject.com/png/1597473-200.png');
@@ -252,7 +271,7 @@ background-size: contain;
 margin: 5px;
 background-color: rgb(0, 143, 17);
 
-}
+} */
 .ship5 {
 
 border: 1px solid black;
@@ -269,7 +288,7 @@ margin: 5px;
 background-color: rgba(0, 255, 65);
 
 }
-.ship5:hover {
+/* .ship5:hover {
 border: 1px solid black;
 cursor: crosshair;
 background-image: url('https://static.thenounproject.com/png/1597473-200.png');
@@ -283,7 +302,7 @@ background-size: contain;
 margin: 5px;
 background-color: rgb(0, 143, 17);
 
-}
+} */
 /* 
 .ship6 {
 border: 1px solid black;
@@ -381,10 +400,19 @@ background-color: rgb(0, 143, 17);
 }
 
 .miss {
-    background-image: url('https://i.pinimg.com/originals/2c/e4/d0/2ce4d0614263f4d25507dd339137a8a8.gif')
+    background-image: url('https://i.gifer.com/2mE9.gif')
   }
 
 .hit {
   background-image: url('https://media.tenor.com/images/feec032b7d79495f15d4e2d45a1950a9/tenor.gif');
   background-size: contain;
+}
+
+.removed {
+  /* background-image: url('https://static.thenounproject.com/png/1597473-200.png'); */
+  /* background-repeat: no-repeat; */
+  /* background-size: contain; */
+  background-color:rgba(0, 255, 65, 0);
+  background-image: none;
+  border: none
 }

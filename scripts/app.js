@@ -116,7 +116,6 @@ function init() {
   const pcCells = []
   const p1Cells = []
   let pcShipPosition = 0 
-  
 
   const threePieceShips = ['ship3','ship4','ship5']
   const fourPieceShip = ['ship1','ship2']
@@ -127,7 +126,7 @@ function init() {
   const pcShip4 = []
   const pcShip5 = []
   
-
+  let lastTurnHit = false
   
 
   //? Element 
@@ -215,18 +214,34 @@ function init() {
   placeComputerPieces()
 
   function targetSelector(e) {
-    console.log('click')
-    if (e.target.classList.contains('pcbattleship')) {
-      sitrep.innerHTML = 'HIT! - PRESS END TURN WHEN READY'
-      e.target.innerHTML = 'hit'
     
+    sitrep.classList.add('sitrepimage')
 
-      e.target.classList.add('hit')
-    } else {
-      sitrep.innerHTML = 'MISS - PRESS END TURN WHEN READY'
-      e.target.classList.add('miss')
-    }
+    const timerId3 = setInterval(() => {
+       
+    
+      if (e.target.classList.contains('pcbattleship')) {
+        sitrep.innerHTML = 'HIT! - PRESS END TURN WHEN READY'
+        hangar.innerHTML = ''
+        e.target.innerHTML = 'hit'
+        e.target.classList.add('hit')
+        clearInterval(timerId3)
+      }else {
+        sitrep.innerHTML = 'MISS - PRESS END TURN WHEN READY'
+        hangar.innerHTML = ''
+        e.target.classList.add('miss')
+        clearInterval(timerId3)
+      }
+
+    },500)
+
+
+
   }
+   
+    
+ 
+
 
   function selectShip(e){
     console.log('click')
@@ -254,7 +269,8 @@ function init() {
       shipLocation2.classList.toggle('battleship')
       shipLocation3.classList.toggle('battleship')
       shipLocation4.classList.toggle('battleship')
-      // ship1.classList.toggle('selected')
+      ship1.classList.toggle('selected')
+      ship1.classList.add('removed')
     }
 
     if (ship2.classList.contains('selected')){
@@ -265,7 +281,8 @@ function init() {
       shipLocation2.classList.toggle('battleship')
       shipLocation3.classList.toggle('battleship')
       shipLocation4.classList.toggle('battleship')
-      // ship2.classList.toggle('selected')
+      ship2.classList.toggle('selected')
+      ship2.classList.add('removed')
     }
   
     if (ship3.classList.contains('selected')){
@@ -274,7 +291,8 @@ function init() {
       shipLocation.classList.toggle('battleship')
       shipLocation2.classList.toggle('battleship')
       shipLocation3.classList.toggle('battleship')
-      // ship3.classList.toggle('selected')
+      ship3.classList.toggle('selected')
+      ship3.classList.add('removed')
     }
     if (ship4.classList.contains('selected')){
       const shipLocation2 = p1Cells[parseInt(shipLocationNumber) + 1]
@@ -282,7 +300,8 @@ function init() {
       shipLocation.classList.toggle('battleship')
       shipLocation2.classList.toggle('battleship')
       shipLocation3.classList.toggle('battleship')
-      // ship4.classList.toggle('selected')
+      ship4.classList.toggle('selected')
+      ship4.classList.add('removed')
     }
     if (ship5.classList.contains('selected')){
       const shipLocation2 = p1Cells[parseInt(shipLocationNumber) + 1]
@@ -290,7 +309,8 @@ function init() {
       shipLocation.classList.toggle('battleship')
       shipLocation2.classList.toggle('battleship')
       shipLocation3.classList.toggle('battleship')
-      // ship5.classList.toggle('selected')
+      ship5.classList.toggle('selected')
+      ship5.classList.add('removed')
 
       
     
@@ -301,9 +321,29 @@ function init() {
 
   function pcTakeTurn(){
 
+    hangar.classList.add('hangarimage')
+    ship1.classList.remove('ship1:hover')
+
+    const timerId2 = setInterval(() => {
+      hangar.classList.remove('hangarimage')
+      clearInterval(timerId2)
+
+    }, 3000) 
+
     const timerId = setInterval(() => {
 
       const computersTarget = Math.floor(Math.random() * numberOfSquares) 
+      let lastLocation = 0
+      let smartLocation = 0
+      
+      const smartTarget = Math.floor(Math.random() * 2)
+
+
+      
+      console.log(smartTarget);
+      
+
+      
       // const computerSmartTarget = Math.floor(Math.random() * 2)
       // if(computerSmartTarget === 0){
       //   computerSmartTarget += 1}else{
@@ -316,14 +356,58 @@ function init() {
       // while (p1Cells[computersTarget].classList.contains('battleship')){
       // let previousTurnWasHit = true
       // }
-  
-      if (p1Cells[computersTarget].classList.contains('battleship')){
-        p1Cells[computersTarget].classList.add('hit') 
-        clearInterval(timerId)
+      
+      if (smartTarget === 0 ){
+        smartLocation = lastLocation + 1
       } else {
-        p1Cells[computersTarget].classList.add('miss')
-        clearInterval(timerId)
+        smartLocation = lastLocation - 1
       }
+
+      // if (lastTurnHit === false){
+        if (p1Cells[computersTarget].classList.contains('battleship')){
+          p1Cells[computersTarget].classList.add('hit') 
+          hangar.innerHTML = 'COMPUTER HIT YOU - Your Turn Again'
+          sitrep.innerHTML = ''
+          clearInterval(timerId)
+          lastTurnHit = true
+          lastLocation = computersTarget
+        } else {
+          p1Cells[computersTarget].classList.add('miss')
+          hangar.innerHTML = 'COMPUTER MISSED - Your Turn Again!'
+          sitrep.innerHTML = ''
+          lastTurnHit = false
+          clearInterval(timerId)
+          lastLocation = computersTarget
+        }
+  
+      
+
+      // if (lastTurnHit === true){
+      //   if (p1Cells[smartLocation].classList.contains('battleship')){
+      //     p1Cells[smartLocation].classList.add('hit')
+      //     hangar.innerHTML = 'COMPUTER HIT YOU - Your Turn Again'
+      //     sitrep.innerHTML = ''
+      //     clearInterval(timerId)
+      //     lastTurnHit = true
+      //     lastLocation = smartLocation
+      //   } else {
+      //     p1Cells[smartLocation].classList.add('miss')
+      //     hangar.innerHTML = ''
+      //     lastTurnHit = false
+      //     clearInterval(timerId)
+      //     lastLocation = smartLocation
+      //   }
+      // }
+
+  
+
+    
+    
+
+      // while (lastTurnHit)
+
+      //   console.log(lastTurnHit);
+      
   
       // if (previousTurnWasHit === true)
   
@@ -338,9 +422,9 @@ function init() {
 
   
   
-//? If 
+  //? If 
 
-//? Event 
+  //? Event 
   
   playersGrid.addEventListener('click',placeOnBoard)
   hangar.addEventListener('click', selectShip)
