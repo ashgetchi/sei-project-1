@@ -63,8 +63,8 @@ cursor: crosshair;
   height: 10%;
   width: 10%;
   cursor: crosshair;
-  border-color: blue;
-  color: blue;
+  border-color: rgb(0, 143, 17);
+  color: rgb(0, 143, 17)
 }
 
 .thegridp1 div:hover {
