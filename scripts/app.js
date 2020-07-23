@@ -127,7 +127,6 @@ function init() {
   const pcShip4 = []
   const pcShip5 = []
   
-  let lastTurnHit = false
   
 
   //? Element 
@@ -283,7 +282,6 @@ function init() {
     const shipLocation = e.target
     const shipLocationNumber = e.target.innerHTML
     
-   
     if (ship1.classList.contains('selected')){
       const shipLocation2 = p1Cells[parseInt(shipLocationNumber) + 1]
       const shipLocation3 = p1Cells[parseInt(shipLocationNumber) + 2]
@@ -334,12 +332,7 @@ function init() {
       shipLocation3.classList.toggle('battleship')
       ship5.classList.toggle('selected')
       ship5.classList.add('removed')
-
-      
-    
     }
-   
-
   }
 
   function pcTakeTurn(){
@@ -353,41 +346,29 @@ function init() {
 
     }, 3000) 
 
+    
+
     const timerId = setInterval(() => {
 
-      const computersTarget = Math.floor(Math.random() * numberOfSquares) 
-      let lastLocation = 0
-      let smartLocation = 0
-      
-      const smartTarget = Math.floor(Math.random() * 2)
-
-
-      
-      console.log(smartTarget);
-      
-
-      
-      // const computerSmartTarget = Math.floor(Math.random() * 2)
-      // if(computerSmartTarget === 0){
-      //   computerSmartTarget += 1}else{
-      //     computerSmartTarget -= 1}
-        
-        
-      // }
-      // console.log(computerSmartTarget)
-  
-      // while (p1Cells[computersTarget].classList.contains('battleship')){
-      // let previousTurnWasHit = true
-      // }
-      
-      if (smartTarget === 0 ){
-        smartLocation = lastLocation + 1
-      } else {
-        smartLocation = lastLocation - 1
+      function createRandomAttack() {
+        return Math.floor(Math.random() * 100)
       }
+      function createSmartAttack() {
+        return Math.floor(Math.random() * 4)
+      }
+    
 
-      // if (lastTurnHit === false){
-        if (p1Cells[computersTarget].classList.contains('battleship')){
+      const smartHits = [1, -1]
+    
+      let lastShot = 'miss'
+      let previousIndex = 0
+
+      
+     
+
+      if (lastshot === 'miss'){
+        const attackIndex = createRandomAttack()
+        if (p1Cells[attackIndex].classList.contains('hit') ||){
           p1Cells[computersTarget].classList.add('hit') 
           hangar.innerHTML = 'COMPUTER HIT YOU - Your Turn Again'
           sitrep.innerHTML = ''
@@ -404,7 +385,7 @@ function init() {
         }
   
       
-
+      }
       // if (lastTurnHit === true){
       //   if (p1Cells[smartLocation].classList.contains('battleship')){
       //     p1Cells[smartLocation].classList.add('hit')
@@ -421,8 +402,6 @@ function init() {
       //     lastLocation = smartLocation
       //   }
       // }
-
-  
       
     }, 3000);
   
