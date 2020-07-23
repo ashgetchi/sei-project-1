@@ -111,6 +111,7 @@ function init() {
   //* Other variables
 
   const loader = document.querySelector('#loader1')
+  const loaderHeading = document.querySelector('.loader-heading')
 
   const gridHeight = 10
   const gridLength = 10
@@ -158,6 +159,8 @@ function init() {
 
     const timerid4 = setInterval(() => {
       loader.classList.remove('loader')
+      loaderHeading.classList.remove('loader-heading')
+      loader.classList.remove('loader-btn')
       clearInterval(timerid4)
     }, 2000)
   }
@@ -447,7 +450,7 @@ console.log(lastShot)
       //   }
       // }
 
-      }else if (lastShot === 'hit'){
+      } else if (lastShot === 'hit'){
         const smartHit = smartHits[createSmartAttack()]
         const newAttack = lastLocation + smartHit
         if (newAttack > 99 || newAttack < 0){
