@@ -116,6 +116,7 @@ function init() {
   const pcCells = []
   const p1Cells = []
   let pcShipPosition = 0 
+  const hitShips2 = []
 
   const threePieceShips = ['ship3','ship4','ship5']
   const fourPieceShip = ['ship1','ship2']
@@ -142,7 +143,6 @@ function init() {
 
   const computersCells = document.querySelectorAll('.thegridpc div')
   const gridcontainerp1 = document.querySelector('.gridcontainerp1')
-
   const ship1 = document.querySelector('#ship1')
   const ship2 = document.querySelector('#ship2')
   const ship3 = document.querySelector('#ship3')
@@ -214,20 +214,39 @@ function init() {
   placeComputerPieces()
 
   function targetSelector(e) {
+    console.log(pcCells)
+
+    const hitShips = []
+
+    const hittedShips = pcCells.forEach(ship => {
+      if (ship.classList.contains('hit')){
+        hitShips.push(ship)
+      }
+    })
+    // return hittedShips
+    console.log(hitShips);
+    
+
+   
+
+        
+    
     
     sitrep.classList.add('sitrepimage')
+     
+   
 
     const timerId3 = setInterval(() => {
        
     
       if (e.target.classList.contains('pcbattleship')) {
-        sitrep.innerHTML = 'HIT! - PRESS END TURN WHEN READY'
+        sitrep.innerHTML = 'HIT! - PRESS END OF TURN WHEN READY'
         hangar.innerHTML = ''
         e.target.innerHTML = 'hit'
         e.target.classList.add('hit')
         clearInterval(timerId3)
-      }else {
-        sitrep.innerHTML = 'MISS - PRESS END TURN WHEN READY'
+      } else {
+        sitrep.innerHTML = 'MISS - PRESS END OF TURN WHEN READY'
         hangar.innerHTML = ''
         e.target.classList.add('miss')
         clearInterval(timerId3)
@@ -235,6 +254,10 @@ function init() {
 
     },500)
 
+    if (hitShips.length >= 16) {
+      sitrep.innerHTML = 'YOU WIN! THE MATRIX HAS BEEN DEFEATED'
+      window.alert('YOU WIN THE MATRIX HAS BEEN DEFEATED')
+    }
 
 
   }
@@ -400,24 +423,22 @@ function init() {
       // }
 
   
-
-    
-    
-
-      // while (lastTurnHit)
-
-      //   console.log(lastTurnHit);
-      
-  
-      // if (previousTurnWasHit === true)
-  
-      // if (computerSmartTarget === )
-  
       
     }, 3000);
   
+    
+    const hittedShips2 = p1Cells.forEach(ship => {
+      if (ship.classList.contains('hit')){
+        hitShips2.push(ship)
+      }
+    })
    
   }    
+
+  if (hitShips2.length >= 16){
+    window.alert('YOU LOSE, THE MATRIX WINS')
+    hangar.innerHTML = 'YOU LOSE, THE MATRIX WINS'
+  }
 
 
   
