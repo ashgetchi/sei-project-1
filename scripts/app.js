@@ -110,6 +110,8 @@ function init() {
 
   //* Other variables
 
+  const loader = document.querySelector('#loader1')
+
   const gridHeight = 10
   const gridLength = 10
   const numberOfSquares = gridLength * gridHeight
@@ -127,16 +129,14 @@ function init() {
   const pcShip4 = []
   const pcShip5 = []
   
+  let lastTurnHit = false
   
 
   //? Element 
 
   const playersGrid = document.querySelector('.thegridp1')
- 
   const computersGrid = document.querySelector('.thegridpc')
-
   const hangar = document.querySelector('.hangar')
-
   const turnButton = document.querySelector('.turn')
   
 
@@ -149,8 +149,20 @@ function init() {
   const ship5 = document.querySelector('#ship5')
   const sitrep = document.querySelector('.sitrep')
 
+  const startButton = document.querySelector('#loader-btn')
+
 
   //? Execution
+  function removeLoader() {
+    loader.style.opacity = '0'
+
+    const timerid4 = setInterval(() => {
+      loader.classList.remove('loader')
+      clearInterval(timerid4)
+    }, 2000)
+  }
+
+
   function createGrids() {
     for (let i = 0; i < numberOfSquares; i++) {
       const p1Cell = document.createElement('div')
@@ -281,7 +293,24 @@ function init() {
   function placeOnBoard(e){
     const shipLocation = e.target
     const shipLocationNumber = e.target.innerHTML
+
+   const hitShips3 = []
+
+    const hittedShips3 = p1Cells.forEach(ship => {
+      if (ship.classList.contains('battleship')){
+        hitShips3.push(ship)
+      }
+    })
+   
+  console.log(hitShips3);
+  
+  if (hitShips3.length === 14){
+    // window.alert('YOU LOSE, THE MATRIX WINS')
+    hangar.innerHTML = 'ALL PIECES PLACED. NOW TAKE YOUR FIRST TURN ON THE OPPONENTS BOARD'
+  }
+
     
+   
     if (ship1.classList.contains('selected')){
       const shipLocation2 = p1Cells[parseInt(shipLocationNumber) + 1]
       const shipLocation3 = p1Cells[parseInt(shipLocationNumber) + 2]
@@ -332,8 +361,33 @@ function init() {
       shipLocation3.classList.toggle('battleship')
       ship5.classList.toggle('selected')
       ship5.classList.add('removed')
+
+      
+    
     }
+   
+
   }
+
+
+  let lastShot = 'miss'
+  let lastLocation = 0
+  let previousSmartHit = 1
+
+  function createRandomAttack() {
+    return Math.floor(Math.random() * 100)
+  }
+
+  function createSmartAttack(){
+    return Math.floor(Math.random() * 2)
+  }
+
+  function createExtraSmartAttack() {
+    return (Math.round(Math.random()))
+  }
+
+  const smartHits = [1, -1]
+console.log(lastShot)
 
   function pcTakeTurn(){
 
@@ -345,47 +399,37 @@ function init() {
       clearInterval(timerId2)
 
     }, 3000) 
-
     
-
     const timerId = setInterval(() => {
-
-      function createRandomAttack() {
-        return Math.floor(Math.random() * 100)
-      }
-      function createSmartAttack() {
-        return Math.floor(Math.random() * 4)
-      }
-    
-
-      const smartHits = [1, -1]
-    
-      let lastShot = 'miss'
-      let previousIndex = 0
-
-      
-     
-
-      if (lastshot === 'miss'){
+      if (lastShot === 'miss'){
         const attackIndex = createRandomAttack()
-        if (p1Cells[attackIndex].classList.contains('hit') ||){
-          p1Cells[computersTarget].classList.add('hit') 
+        if (p1Cells[attackIndex].classList.contains('miss') || p1Cells[attackIndex].classList.contains('hit')){
+        pcTakeTurn()
+        clearInterval(timerId)
+        } else if (p1Cells[attackIndex].classList.contains('battleship')){
+          p1Cells[attackIndex].classList.add('hit') 
           hangar.innerHTML = 'COMPUTER HIT YOU - Your Turn Again'
           sitrep.innerHTML = ''
           clearInterval(timerId)
-          lastTurnHit = true
-          lastLocation = computersTarget
+          lastShot = 'hit'
+          lastLocation = attackIndex
         } else {
-          p1Cells[computersTarget].classList.add('miss')
+          p1Cells[attackIndex].classList.add('miss')
           hangar.innerHTML = 'COMPUTER MISSED - Your Turn Again!'
           sitrep.innerHTML = ''
-          lastTurnHit = false
+          lastShot = 'miss'
           clearInterval(timerId)
-          lastLocation = computersTarget
+          lastLocation = attackIndex
+          console.log(lastLocation)
+          console.log(attackIndex)
+          console.log(lastShot);
+          
         }
+      
+      // }
   
       
-      }
+
       // if (lastTurnHit === true){
       //   if (p1Cells[smartLocation].classList.contains('battleship')){
       //     p1Cells[smartLocation].classList.add('hit')
@@ -402,10 +446,75 @@ function init() {
       //     lastLocation = smartLocation
       //   }
       // }
+
+      }else if (lastShot === 'hit'){
+        const smartHit = smartHits[createSmartAttack()]
+        const newAttack = lastLocation + smartHit
+        if (newAttack > 99 || newAttack < 0){
+        pcTakeTurn()
+      } else {
+        if (p1Cells[newAttack].classList.contains('hit') || p1Cells[newAttack].classList.contains('miss')){
+          lastShot = 'miss'
+          pcTakeTurn()
+          clearInterval(timerId)
+      } else {
+        if (p1Cells[newAttack].classList.contains('battleship')){
+          p1Cells[newAttack].classList.add('hit')
+          hangar.innerHTML = 'COMPUTER HIT YOU - Your Turn Again'
+          sitrep.innerHTML = ''
+          clearInterval(timerId)
+          lastShot = 'hithorizontal'
+          previousSmartHit = smartHit
+          lastLocation = newAttack
+        } else {
+          p1Cells[newAttack].classList.add('miss')
+          hangar.innerHTML = 'COMPUTER MISSED - Your Turn Again!'
+          sitrep.innerHTML = ''
+          lastShot = 'miss'
+          clearInterval(timerId)
+          lastLocation = newAttack
+        }
+      }
+        }
+      } else if (lastShot === 'hithorizontal'){
+        extraSmartHit = previousSmartHit
+        const newExtraSmartAttack = lastLocation + extraSmartHit
+        if (newExtraSmartAttack < 99 && newExtraSmartAttack > 0){
+          if(p1Cells[newExtraSmartAttack].classList.contains('hit') || p1Cells[newExtraSmartAttack].classList.contains('miss')){
+            lastShot = 'miss'
+            pcTakeTurn()
+          }else {
+            if (p1Cells[newExtraSmartAttack].classList.contains('battleship')){p1Cells[newExtraSmartAttack].classList.add('hit')
+          p1Cells[newExtraSmartAttack]
+          lastShot = 'hithorizontal'
+          hangar.innerHTML = 'COMPUTER HIT YOU - Your Turn Again'
+          sitrep.innerHTML = ''
+          clearInterval(timerId)
+          lastLocation = newExtraSmartAttack
+        } else {
+          p1Cells[newExtraSmartAttack].classList.add('miss')
+          lastShot = 'miss'
+          lastLocation = newExtraSmartAttack
+          hangar.innerHTML = 'COMPUTER MISSED - Your Turn Again!'
+          sitrep.innerHTML = ''
+          clearInterval(timerId)
+        }
+      }
+        } else {
+          lastShot = 'miss'
+          pcTakeTurn()
+        }
       
+      }
+
+      
+    
+      
+      
+    
     }, 3000);
   
-    
+  
     const hittedShips2 = p1Cells.forEach(ship => {
       if (ship.classList.contains('hit')){
         hitShips2.push(ship)
@@ -425,7 +534,7 @@ function init() {
   //? If 
 
   //? Event 
-  
+  startButton.addEventListener('click', removeLoader)
   playersGrid.addEventListener('click',placeOnBoard)
   hangar.addEventListener('click', selectShip)
   computersGrid.addEventListener('click', targetSelector)
