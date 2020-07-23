@@ -120,6 +120,7 @@ function init() {
   const p1Cells = []
   let pcShipPosition = 0 
   const hitShips2 = []
+  let playersTurn = true
 
   const threePieceShips = ['ship3','ship4','ship5']
   const fourPieceShip = ['ship1','ship2']
@@ -228,6 +229,11 @@ function init() {
   placeComputerPieces()
 
   function targetSelector(e) {
+
+    
+    console.log(playersTurn);
+    
+
     console.log(pcCells)
 
     const hitShips = []
@@ -252,21 +258,28 @@ function init() {
 
     const timerId3 = setInterval(() => {
        
-    
+    if(playersTurn === true){
       if (e.target.classList.contains('pcbattleship')) {
         sitrep.innerHTML = 'HIT! - PRESS END OF TURN WHEN READY'
         hangar.innerHTML = ''
         e.target.innerHTML = 'hit'
         e.target.classList.add('hit')
         clearInterval(timerId3)
+        playersTurn = false
       } else {
         sitrep.innerHTML = 'MISS - PRESS END OF TURN WHEN READY'
         hangar.innerHTML = ''
         e.target.classList.add('miss')
         clearInterval(timerId3)
+        playersTurn = false
       }
+    } else {
+      hangar.innerHTML = 'You think I didnt think of that? Its not your turn'
+    }
 
     },500)
+ 
+
 
     if (hitShips.length >= 16) {
       sitrep.innerHTML = 'YOU WIN! THE MATRIX HAS BEEN DEFEATED'
@@ -394,6 +407,10 @@ console.log(lastShot)
 
   function pcTakeTurn(){
 
+    playersTurn = true
+    console.log(playersTurn);
+    
+
     hangar.classList.add('hangarimage')
     ship1.classList.remove('ship1:hover')
 
@@ -416,6 +433,7 @@ console.log(lastShot)
           clearInterval(timerId)
           lastShot = 'hit'
           lastLocation = attackIndex
+          playersTurn = true
         } else {
           p1Cells[attackIndex].classList.add('miss')
           hangar.innerHTML = 'COMPUTER MISSED - Your Turn Again!'
@@ -423,6 +441,7 @@ console.log(lastShot)
           lastShot = 'miss'
           clearInterval(timerId)
           lastLocation = attackIndex
+          playersTurn = true
           console.log(lastLocation)
           console.log(attackIndex)
           console.log(lastShot);
@@ -455,9 +474,11 @@ console.log(lastShot)
         const newAttack = lastLocation + smartHit
         if (newAttack > 99 || newAttack < 0){
         pcTakeTurn()
+        playersTurn = true
       } else {
         if (p1Cells[newAttack].classList.contains('hit') || p1Cells[newAttack].classList.contains('miss')){
           lastShot = 'miss'
+          playersTurn = true
           pcTakeTurn()
           clearInterval(timerId)
       } else {
@@ -469,6 +490,7 @@ console.log(lastShot)
           lastShot = 'hithorizontal'
           previousSmartHit = smartHit
           lastLocation = newAttack
+          playersTurn = true
         } else {
           p1Cells[newAttack].classList.add('miss')
           hangar.innerHTML = 'COMPUTER MISSED - Your Turn Again!'
@@ -476,15 +498,18 @@ console.log(lastShot)
           lastShot = 'miss'
           clearInterval(timerId)
           lastLocation = newAttack
+          playersTurn = true
         }
       }
         }
       } else if (lastShot === 'hithorizontal'){
         extraSmartHit = previousSmartHit
+        playersTurn = true
         const newExtraSmartAttack = lastLocation + extraSmartHit
         if (newExtraSmartAttack < 99 && newExtraSmartAttack > 0){
           if(p1Cells[newExtraSmartAttack].classList.contains('hit') || p1Cells[newExtraSmartAttack].classList.contains('miss')){
             lastShot = 'miss'
+            playersTurn = true
             pcTakeTurn()
           }else {
             if (p1Cells[newExtraSmartAttack].classList.contains('battleship')){p1Cells[newExtraSmartAttack].classList.add('hit')
@@ -492,11 +517,13 @@ console.log(lastShot)
           lastShot = 'hithorizontal'
           hangar.innerHTML = 'COMPUTER HIT YOU - Your Turn Again'
           sitrep.innerHTML = ''
+          playersTurn = true
           clearInterval(timerId)
           lastLocation = newExtraSmartAttack
         } else {
           p1Cells[newExtraSmartAttack].classList.add('miss')
           lastShot = 'miss'
+          playersTurn = true
           lastLocation = newExtraSmartAttack
           hangar.innerHTML = 'COMPUTER MISSED - Your Turn Again!'
           sitrep.innerHTML = ''
@@ -505,6 +532,7 @@ console.log(lastShot)
       }
         } else {
           lastShot = 'miss'
+          playersTurn = true
           pcTakeTurn()
         }
       

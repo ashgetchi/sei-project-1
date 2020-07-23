@@ -443,3 +443,7 @@ background-color: rgb(0, 143, 17);
   opacity: 1;
   background-image: url('https://eatsleepworkrepeat.com/wp-content/uploads/2019/03/Matrix-GIF.gif');
 }
+
+.loader-text {
+  font-size: x-large;
+}
