@@ -26,7 +26,12 @@ body {
   /* background-image: url('https://i.pinimg.com/originals/2c/e4/d0/2ce4d0614263f4d25507dd339137a8a8.gif'); */
 }
 
+.pause{
+  margin-right: 300px;
+  font-size: 15px;
+  padding: 0;
 
+}
 
 
 .thegridp1{

@@ -140,6 +140,12 @@ function init() {
   const computersGrid = document.querySelector('.thegridpc')
   const hangar = document.querySelector('.hangar')
   const turnButton = document.querySelector('.turn')
+
+  const playSound = document.querySelector('#soundbtn')
+  const mainMusic = document.querySelector('#music')
+  const pauseMusic = document.querySelector('.pause')
+  const missSound = document.querySelector('#miss-sound')
+  const hitSound = document.querySelector('#hit-sound')
   
 
   const computersCells = document.querySelectorAll('.thegridpc div')
@@ -155,6 +161,29 @@ function init() {
 
 
   //? Execution
+
+  function playMissSound(){
+    missSound.src = 'sounds/Cannonball-Splash-A3-www.fesliyanstudios.com.mp3'
+    missSound.play()
+  }
+
+  function playHitSound(){
+    hitSound.src = 'sounds/Explosion+3.mp3'
+    hitSound.play()
+  }
+
+  function playMusic() {
+    mainMusic.src = 'sounds/clubbed to death - Matrix soundtrack.mp3'
+
+    mainMusic.play()
+    }
+
+    function pauseSound() {
+      mainMusic.pause()
+    }
+
+  
+
   function removeLoader() {
     loader.style.opacity = '0'
 
@@ -264,12 +293,14 @@ function init() {
         hangar.innerHTML = ''
         e.target.innerHTML = 'hit'
         e.target.classList.add('hit')
+        playHitSound()
         clearInterval(timerId3)
         playersTurn = false
       } else {
         sitrep.innerHTML = 'MISS - PRESS END OF TURN WHEN READY'
         hangar.innerHTML = ''
         e.target.classList.add('miss')
+        playMissSound()
         clearInterval(timerId3)
         playersTurn = false
       }
@@ -430,6 +461,7 @@ console.log(lastShot)
           p1Cells[attackIndex].classList.add('hit') 
           hangar.innerHTML = 'COMPUTER HIT YOU - Your Turn Again'
           sitrep.innerHTML = ''
+          playHitSound()
           clearInterval(timerId)
           lastShot = 'hit'
           lastLocation = attackIndex
@@ -439,6 +471,7 @@ console.log(lastShot)
           hangar.innerHTML = 'COMPUTER MISSED - Your Turn Again!'
           sitrep.innerHTML = ''
           lastShot = 'miss'
+          playMissSound()
           clearInterval(timerId)
           lastLocation = attackIndex
           playersTurn = true
@@ -478,6 +511,7 @@ console.log(lastShot)
       } else {
         if (p1Cells[newAttack].classList.contains('hit') || p1Cells[newAttack].classList.contains('miss')){
           lastShot = 'miss'
+          playMissSound()
           playersTurn = true
           pcTakeTurn()
           clearInterval(timerId)
@@ -486,6 +520,7 @@ console.log(lastShot)
           p1Cells[newAttack].classList.add('hit')
           hangar.innerHTML = 'COMPUTER HIT YOU - Your Turn Again'
           sitrep.innerHTML = ''
+          playHitSound()
           clearInterval(timerId)
           lastShot = 'hithorizontal'
           previousSmartHit = smartHit
@@ -496,6 +531,7 @@ console.log(lastShot)
           hangar.innerHTML = 'COMPUTER MISSED - Your Turn Again!'
           sitrep.innerHTML = ''
           lastShot = 'miss'
+          playMissSound()
           clearInterval(timerId)
           lastLocation = newAttack
           playersTurn = true
@@ -518,6 +554,7 @@ console.log(lastShot)
           hangar.innerHTML = 'COMPUTER HIT YOU - Your Turn Again'
           sitrep.innerHTML = ''
           playersTurn = true
+          playHitSound()
           clearInterval(timerId)
           lastLocation = newExtraSmartAttack
         } else {
@@ -525,6 +562,7 @@ console.log(lastShot)
           lastShot = 'miss'
           playersTurn = true
           lastLocation = newExtraSmartAttack
+          playMissSound()
           hangar.innerHTML = 'COMPUTER MISSED - Your Turn Again!'
           sitrep.innerHTML = ''
           clearInterval(timerId)
@@ -570,6 +608,8 @@ console.log(lastShot)
   hangar.addEventListener('click', selectShip)
   computersGrid.addEventListener('click', targetSelector)
   turnButton.addEventListener('click', pcTakeTurn)
+  playSound.addEventListener('click', playMusic)
+  pauseMusic.addEventListener('click', pauseSound)
 
 
 
