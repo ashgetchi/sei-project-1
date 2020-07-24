@@ -210,7 +210,7 @@ function init() {
       pcCell.innerHTML = i
       computersGrid.appendChild(pcCell)
     }
-    window.alert('CLICK YOUR SHIP AND THEN CLICK WHERE YOU WANT IT ON THE BOARD')
+    
   }
   createGrids()
   
